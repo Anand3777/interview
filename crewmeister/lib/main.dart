@@ -1,22 +1,10 @@
-import 'package:crewmeister/landing_page.dart';
+import 'package:crewmeister/core/app.dart';
+import 'package:crewmeister/core/injection/injection_web.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Injection injectionNative = Injection();
+  injectionNative.initialize();
   runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Crewmeister',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const LandingPage());
-  }
 }
